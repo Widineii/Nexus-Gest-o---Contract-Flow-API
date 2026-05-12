@@ -1,0 +1,47 @@
+### Build output
+target/
+build/
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+### IDEs
+.idea/
+*.iws
+*.iml
+*.ipr
+.vscode/
+.classpath
+.project
+.settings/
+.springBeans
+.sts4-cache/
+.apt_generated/
+.factorypath
+nbproject/private/
+nbbuild/
+nbdist/
+.nb-gradle/
+
+### Maven (script run.ps1 baixa Maven portatil para .mvn/)
+.mvn/apache-maven-*/
+.mvn/wrapper/maven-wrapper.jar
+
+### Logs e arquivos temporarios
+*.log
+logs/
+_run.log
+_build.log
+_diag.txt
+
+### OS
+.DS_Store
+Thumbs.db
+
+### Environment
+.env
+*.local
+
+### Outros
+*.bak
+*.tmp
+HELP.md

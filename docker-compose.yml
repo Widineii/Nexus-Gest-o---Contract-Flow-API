@@ -1,0 +1,11 @@
+# MySQL 8 para desenvolvimento local (porta 3306)
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: nexus-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: nexus_contract_flow
+    ports:
+      - "3306:3306"
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
