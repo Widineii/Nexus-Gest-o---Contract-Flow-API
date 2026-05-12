@@ -18,6 +18,7 @@ public class SecurityConfig {
 
     private static final String[] PUBLIC_ENDPOINTS = {
             "/",
+            "/health",
             "/api/v1/auth/**",
             "/v3/api-docs/**",
             "/v3/api-docs.yaml",

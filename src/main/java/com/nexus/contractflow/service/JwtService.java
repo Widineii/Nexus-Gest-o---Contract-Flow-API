@@ -11,9 +11,11 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
 import javax.crypto.SecretKey;
+import java.nio.charset.StandardCharsets;
 import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -89,7 +91,21 @@ public class JwtService {
     }
 
     private SecretKey getSigningKey() {
-        byte[] keyBytes = Decoders.BASE64.decode(secret);
+        byte[] keyBytes;
+        try {
+            keyBytes = Decoders.BASE64.decode(secret);
+            if (keyBytes.length < 32) {
+                keyBytes = secret.getBytes(StandardCharsets.UTF_8);
+            }
+        } catch (Exception e) {
+            keyBytes = secret.getBytes(StandardCharsets.UTF_8);
+        }
+        if (keyBytes.length < 32) {
+            byte[] padded = new byte[32];
+            Arrays.fill(padded, (byte) '0');
+            System.arraycopy(keyBytes, 0, padded, 0, Math.min(keyBytes.length, 32));
+            keyBytes = padded;
+        }
         return Keys.hmacShaKeyFor(keyBytes);
     }
 }

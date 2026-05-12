@@ -1,0 +1,19 @@
+# Blueprint Render - Nexus Gestao Contract Flow
+# Deploy gratuito via Docker (runtime Java nao e nativo no Render)
+# Free plan: 512MB RAM, sleep apos 15min de inatividade
+services:
+  - type: web
+    name: nexus-contract-flow
+    runtime: docker
+    plan: free
+    region: oregon
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    healthCheckPath: /health
+    envVars:
+      - key: SPRING_PROFILES_ACTIVE
+        value: local
+      - key: JWT_SECRET
+        generateValue: true
+      - key: TZ
+        value: America/Sao_Paulo

@@ -13,6 +13,16 @@
 
 > Sistema corporativo de backend para **controle de ciclo de vida de contratos**, integração com fornecedores e automação de alertas de vigência.
 
+## 🌐 Demo online
+
+[![Render Deploy](https://img.shields.io/badge/Render-Deploy%20to-46E3B7?logo=render&logoColor=white)](https://dashboard.render.com/blueprint/new?repo=https://github.com/Widineii/Nexus-Gest-o---Contract-Flow-API)
+
+**Swagger ao vivo:** `https://nexus-contract-flow.onrender.com/swagger-ui.html` _(após o deploy ficar live)_
+
+> O serviço roda no **plano free** do Render. Ele dorme após 15 min sem acesso — a primeira visita demora ~30-60s pra acordar. Banco H2 em memória re-popula com dados de exemplo a cada cold start.
+
+**Credenciais para testar:** `admin@nexus.com` / `admin123`
+
 ## Preview
 
 <p align="center">

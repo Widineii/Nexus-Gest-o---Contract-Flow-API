@@ -1,0 +1,15 @@
+target/
+.mvn/apache-maven-*/
+.git/
+.gitignore
+.idea/
+.vscode/
+*.iml
+*.log
+_run.log
+_build.log
+docs/
+README.md
+run.ps1
+run.bat
+docker-compose.yml
