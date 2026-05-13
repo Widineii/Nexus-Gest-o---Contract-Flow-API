@@ -24,7 +24,7 @@ Um backend corporativo em **Java 17 + Spring Boot 3.5** para controle do ciclo d
 
 💡 Diferencial: o repositório vem com um script `run.ps1` que baixa o Maven automaticamente e sobe a aplicação em modo zero-config (H2 em memória) — quem clonar abre o Swagger e testa em minutos, sem instalar nada além do Java.
 
-🔗 Demo (landing page): https://statuesque-syrniki-a62ad4.netlify.app
+🔗 Demo (landing page): https://widineii.github.io/Nexus-Gest-o---Contract-Flow-API/
 🔗 Repositório completo: https://github.com/Widineii/Nexus-Gest-o---Contract-Flow-API
 
 #java #springboot #backend #api #rest #jwt #mysql #portfolio #desenvolvedor #programacao

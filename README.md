@@ -15,9 +15,9 @@
 
 ## 🌐 Demo online
 
-[![Netlify Status](https://img.shields.io/badge/Netlify-Live-00C7B7?logo=netlify&logoColor=white)](https://statuesque-syrniki-a62ad4.netlify.app)
+[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Live-181717?logo=github&logoColor=white)](https://widineii.github.io/Nexus-Gest-o---Contract-Flow-API/)
 
-**Landing page do projeto:** [https://statuesque-syrniki-a62ad4.netlify.app](https://statuesque-syrniki-a62ad4.netlify.app)
+**Landing page do projeto:** [https://widineii.github.io/Nexus-Gest-o---Contract-Flow-API/](https://widineii.github.io/Nexus-Gest-o---Contract-Flow-API/)
 
 > A landing apresenta o projeto, stack, endpoints e arquitetura. Pra rodar o **Swagger UI interativo** (que precisa de backend rodando), siga a seção [Quick start](#quick-start-zero-config) abaixo — 1 comando, sem instalar nada além do Java.
 
