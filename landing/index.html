@@ -1,0 +1,403 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Nexus Gestão · Contract Flow — API corporativa de contratos</title>
+<meta name="description" content="Sistema backend Spring Boot para controle de ciclo de vida de contratos, fornecedores e alertas automáticos de vigência. JWT, MySQL, Swagger e arquitetura em camadas." />
+<meta property="og:title" content="Nexus Gestão · Contract Flow" />
+<meta property="og:description" content="Backend Java + Spring Boot para gestão de contratos com automação de vigência e segurança JWT." />
+<meta property="og:type" content="website" />
+<meta name="theme-color" content="#0a0e1a" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<div class="bg-gradient" aria-hidden="true"></div>
+<div class="bg-grid" aria-hidden="true"></div>
+
+<header class="nav">
+  <div class="container nav-inner">
+    <a href="#top" class="brand">
+      <span class="brand-mark">NX</span>
+      <span class="brand-text">Nexus<span class="brand-dot">.</span>Contract Flow</span>
+    </a>
+    <nav class="nav-links">
+      <a href="#features">Features</a>
+      <a href="#stack">Stack</a>
+      <a href="#api">API</a>
+      <a href="#arquitetura">Arquitetura</a>
+      <a href="https://github.com/Widineii/Nexus-Gest-o---Contract-Flow-API" class="btn btn-ghost btn-sm" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 .5C5.6.5.5 5.6.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.8-1.6-2.6-.3-5.3-1.3-5.3-5.8 0-1.3.5-2.3 1.2-3.2-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2.9-.3 2-.4 3-.4s2.1.1 3 .4c2.3-1.5 3.3-1.2 3.3-1.2.7 1.6.2 2.8.1 3.1.8.8 1.2 1.9 1.2 3.2 0 4.5-2.7 5.5-5.3 5.8.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.6 18.4.5 12 .5z"/></svg>
+        GitHub
+      </a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+<section class="hero">
+  <div class="container hero-inner">
+    <div class="hero-badge">
+      <span class="pulse-dot"></span>
+      Backend corporativo · Java 17 · Spring Boot 3
+    </div>
+
+    <h1 class="hero-title">
+      Gestão de contratos<br/>
+      <span class="grad-text">com fluxo automático de vigência.</span>
+    </h1>
+
+    <p class="hero-sub">
+      API REST robusta para empresas que precisam controlar
+      <strong>contratos, fornecedores e vencimentos</strong>
+      sem depender de planilhas. Status dinâmico,
+      autenticação JWT, validação de CNPJ e job diário de expiração.
+    </p>
+
+    <div class="hero-cta">
+      <a href="https://github.com/Widineii/Nexus-Gest-o---Contract-Flow-API" class="btn btn-primary" target="_blank" rel="noopener">
+        Ver no GitHub
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+      <a href="#api" class="btn btn-secondary">
+        Explorar a API
+      </a>
+    </div>
+
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-num">17+</div>
+        <div class="stat-label">Endpoints REST</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Cobertura de DTOs</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">JWT</div>
+        <div class="stat-label">Auth stateless</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">3</div>
+        <div class="stat-label">Camadas (MVC)</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-visual" aria-hidden="true">
+    <div class="terminal">
+      <div class="term-header">
+        <span class="dot red"></span>
+        <span class="dot yellow"></span>
+        <span class="dot green"></span>
+        <span class="term-title">POST /api/v1/contratos</span>
+      </div>
+      <pre class="term-body"><code><span class="ck">{</span>
+  <span class="ks">"numero"</span>: <span class="cs">"CT-2026-001"</span>,
+  <span class="ks">"objeto"</span>: <span class="cs">"Manutenção preventiva"</span>,
+  <span class="ks">"valor"</span>: <span class="cn">125000.00</span>,
+  <span class="ks">"dataInicio"</span>: <span class="cs">"2026-01-15"</span>,
+  <span class="ks">"dataFim"</span>: <span class="cs">"2026-12-31"</span>,
+  <span class="ks">"fornecedorId"</span>: <span class="cn">42</span>
+<span class="ck">}</span>
+
+<span class="cm">// → 201 Created · status = ATIVO</span></code></pre>
+    </div>
+  </div>
+</section>
+
+<section id="features" class="section">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">O que entrega</span>
+      <h2>Features de produção, não de tutorial.</h2>
+    </div>
+
+    <div class="grid-3">
+      <div class="card">
+        <div class="card-icon">📑</div>
+        <h3>Ciclo de vida completo</h3>
+        <p>CRUD de contratos com status dinâmico (ATIVO · VENCENDO · VENCIDO · SUSPENSO) calculado em tempo de leitura conforme a vigência.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">🏢</div>
+        <h3>Fornecedores com CNPJ válido</h3>
+        <p>Validação de CNPJ via <code>@CNPJ</code> customizado (algoritmo dos dígitos verificadores) + unicidade no banco. Exclusão bloqueada se houver contratos ativos.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">⏰</div>
+        <h3>Scheduler de vencimento</h3>
+        <p>Job <code>@Scheduled</code> diário às 00:00 marca como <strong>VENCIDO</strong> todo contrato cuja <code>dataFim</code> passou. Logs estruturados de cada execução.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">🔐</div>
+        <h3>JWT + BCrypt</h3>
+        <p>Autenticação stateless com filtro JWT customizado, senhas hasheadas com BCrypt e <code>SecurityConfig</code> liberando apenas endpoints públicos.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">📊</div>
+        <h3>Dashboard agregado</h3>
+        <p>Endpoint <code>/dashboard</code> com totais por status, contratos vencendo em 30 dias e valor consolidado da carteira — feito em uma única query.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">📖</div>
+        <h3>Swagger UI interativo</h3>
+        <p>Documentação OpenAPI 3 com exemplos, schemas e <strong>botão Authorize</strong> pra colar o JWT e testar tudo direto do navegador.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="stack" class="section">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Tech Stack</span>
+      <h2>Tecnologias maduras, sem hype.</h2>
+    </div>
+
+    <div class="stack-grid">
+      <div class="tech"><span class="tech-name">Java 17</span><span class="tech-tag">Linguagem</span></div>
+      <div class="tech"><span class="tech-name">Spring Boot 3.5</span><span class="tech-tag">Framework</span></div>
+      <div class="tech"><span class="tech-name">Spring Security</span><span class="tech-tag">Auth</span></div>
+      <div class="tech"><span class="tech-name">Spring Data JPA</span><span class="tech-tag">ORM</span></div>
+      <div class="tech"><span class="tech-name">MySQL 8</span><span class="tech-tag">Banco</span></div>
+      <div class="tech"><span class="tech-name">Flyway</span><span class="tech-tag">Migrations</span></div>
+      <div class="tech"><span class="tech-name">JWT (jjwt)</span><span class="tech-tag">Token</span></div>
+      <div class="tech"><span class="tech-name">MapStruct</span><span class="tech-tag">Mappers</span></div>
+      <div class="tech"><span class="tech-name">Lombok</span><span class="tech-tag">Boilerplate</span></div>
+      <div class="tech"><span class="tech-name">Bean Validation</span><span class="tech-tag">Validação</span></div>
+      <div class="tech"><span class="tech-name">SpringDoc OpenAPI</span><span class="tech-tag">Swagger</span></div>
+      <div class="tech"><span class="tech-name">JUnit 5 + Mockito</span><span class="tech-tag">Testes</span></div>
+      <div class="tech"><span class="tech-name">Docker</span><span class="tech-tag">Container</span></div>
+      <div class="tech"><span class="tech-name">Maven</span><span class="tech-tag">Build</span></div>
+      <div class="tech"><span class="tech-name">H2</span><span class="tech-tag">Local DB</span></div>
+      <div class="tech"><span class="tech-name">Logback</span><span class="tech-tag">Logs</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="api" class="section">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">API REST</span>
+      <h2>Endpoints sob <code>/api/v1</code></h2>
+    </div>
+
+    <div class="api-grid">
+
+      <div class="api-group">
+        <div class="api-group-title">
+          <span class="pill pill-pub">Público</span> Autenticação
+        </div>
+        <div class="endpoint">
+          <span class="verb post">POST</span>
+          <code>/auth/register</code>
+          <span class="ep-desc">Cria novo usuário</span>
+        </div>
+        <div class="endpoint">
+          <span class="verb post">POST</span>
+          <code>/auth/login</code>
+          <span class="ep-desc">Retorna JWT</span>
+        </div>
+      </div>
+
+      <div class="api-group">
+        <div class="api-group-title">
+          <span class="pill pill-auth">JWT</span> Fornecedores
+        </div>
+        <div class="endpoint">
+          <span class="verb post">POST</span>
+          <code>/fornecedores</code>
+          <span class="ep-desc">Cadastra fornecedor</span>
+        </div>
+        <div class="endpoint">
+          <span class="verb get">GET</span>
+          <code>/fornecedores</code>
+          <span class="ep-desc">Lista paginada</span>
+        </div>
+        <div class="endpoint">
+          <span class="verb get">GET</span>
+          <code>/fornecedores/{id}</code>
+          <span class="ep-desc">Detalhes</span>
+        </div>
+        <div class="endpoint">
+          <span class="verb get">GET</span>
+          <code>/fornecedores/{id}/contratos</code>
+          <span class="ep-desc">Contratos do fornecedor</span>
+        </div>
+        <div class="endpoint">
+          <span class="verb del">DEL</span>
+          <code>/fornecedores/{id}</code>
+          <span class="ep-desc">Exclui (se sem ativos)</span>
+        </div>
+      </div>
+
+      <div class="api-group">
+        <div class="api-group-title">
+          <span class="pill pill-auth">JWT</span> Contratos
+        </div>
+        <div class="endpoint">
+          <span class="verb post">POST</span>
+          <code>/contratos</code>
+          <span class="ep-desc">Cria contrato</span>
+        </div>
+        <div class="endpoint">
+          <span class="verb get">GET</span>
+          <code>/contratos/{id}</code>
+          <span class="ep-desc">Detalhes + status dinâmico</span>
+        </div>
+        <div class="endpoint">
+          <span class="verb get">GET</span>
+          <code>/contratos/vencendo</code>
+          <span class="ep-desc">Vencendo em 30 dias</span>
+        </div>
+        <div class="endpoint">
+          <span class="verb put">PUT</span>
+          <code>/contratos/{id}/suspender</code>
+          <span class="ep-desc">Marca como SUSPENSO</span>
+        </div>
+      </div>
+
+      <div class="api-group">
+        <div class="api-group-title">
+          <span class="pill pill-auth">JWT</span> Dashboard
+        </div>
+        <div class="endpoint">
+          <span class="verb get">GET</span>
+          <code>/dashboard</code>
+          <span class="ep-desc">Totais e métricas</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="code-showcase">
+      <div class="code-tabs">
+        <button class="tab active" data-tab="login">Login</button>
+        <button class="tab" data-tab="create">Criar contrato</button>
+        <button class="tab" data-tab="error">Erro padronizado</button>
+      </div>
+
+      <pre class="code-block" id="code-login"><code><span class="cm">// POST /api/v1/auth/login</span>
+<span class="ck">{</span>
+  <span class="ks">"email"</span>: <span class="cs">"admin@nexus.com"</span>,
+  <span class="ks">"senha"</span>: <span class="cs">"admin123"</span>
+<span class="ck">}</span>
+
+<span class="cm">// ← 200 OK</span>
+<span class="ck">{</span>
+  <span class="ks">"token"</span>: <span class="cs">"eyJhbGciOiJIUzI1NiJ9..."</span>,
+  <span class="ks">"tipo"</span>: <span class="cs">"Bearer"</span>,
+  <span class="ks">"expiraEm"</span>: <span class="cn">3600</span>
+<span class="ck">}</span></code></pre>
+
+      <pre class="code-block hidden" id="code-create"><code><span class="cm">// POST /api/v1/contratos · Bearer JWT</span>
+<span class="ck">{</span>
+  <span class="ks">"numero"</span>: <span class="cs">"CT-2026-042"</span>,
+  <span class="ks">"objeto"</span>: <span class="cs">"Licenciamento de software ERP"</span>,
+  <span class="ks">"valor"</span>: <span class="cn">480000.00</span>,
+  <span class="ks">"dataInicio"</span>: <span class="cs">"2026-02-01"</span>,
+  <span class="ks">"dataFim"</span>: <span class="cs">"2027-01-31"</span>,
+  <span class="ks">"fornecedorId"</span>: <span class="cn">7</span>
+<span class="ck">}</span>
+
+<span class="cm">// ← 201 Created</span>
+<span class="ck">{</span>
+  <span class="ks">"id"</span>: <span class="cn">128</span>,
+  <span class="ks">"status"</span>: <span class="cs">"ATIVO"</span>,
+  <span class="ks">"valor"</span>: <span class="cn">480000.00</span>,
+  <span class="ks">"diasParaVencer"</span>: <span class="cn">364</span>
+<span class="ck">}</span></code></pre>
+
+      <pre class="code-block hidden" id="code-error"><code><span class="cm">// ← 409 Conflict — exclusão bloqueada</span>
+<span class="ck">{</span>
+  <span class="ks">"status"</span>: <span class="cn">409</span>,
+  <span class="ks">"erro"</span>: <span class="cs">"Operação não permitida"</span>,
+  <span class="ks">"mensagem"</span>: <span class="cs">"Fornecedor possui 3 contrato(s) ATIVO(s) e não pode ser excluído"</span>,
+  <span class="ks">"timestamp"</span>: <span class="cs">"2026-05-12T20:34:11Z"</span>,
+  <span class="ks">"path"</span>: <span class="cs">"/api/v1/fornecedores/42"</span>
+<span class="ck">}</span></code></pre>
+    </div>
+  </div>
+</section>
+
+<section id="arquitetura" class="section">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Arquitetura</span>
+      <h2>Camadas separadas, responsabilidade clara.</h2>
+    </div>
+
+    <div class="arch">
+      <div class="layer">
+        <div class="layer-name">Controller</div>
+        <div class="layer-desc">REST · DTOs · validação · códigos HTTP</div>
+      </div>
+      <div class="arch-arrow">↓</div>
+      <div class="layer">
+        <div class="layer-name">Service</div>
+        <div class="layer-desc">Regras de negócio · transações · status dinâmico</div>
+      </div>
+      <div class="arch-arrow">↓</div>
+      <div class="layer">
+        <div class="layer-name">Repository</div>
+        <div class="layer-desc">Spring Data JPA · queries customizadas</div>
+      </div>
+      <div class="arch-arrow">↓</div>
+      <div class="layer layer-db">
+        <div class="layer-name">MySQL 8 · Flyway</div>
+        <div class="layer-desc">Migrations versionadas · seed automático</div>
+      </div>
+
+      <div class="arch-side">
+        <div class="side-item">🛡️ <strong>SecurityFilterChain</strong> → JwtAuthFilter intercepta toda requisição</div>
+        <div class="side-item">🚨 <strong>GlobalExceptionHandler</strong> → ErrorResponse padronizado em PT-BR</div>
+        <div class="side-item">⏰ <strong>ContratoScheduler</strong> → cron diário expira contratos</div>
+        <div class="side-item">📦 <strong>MapStruct</strong> → Entity ⇄ DTO em tempo de compilação</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section cta-section">
+  <div class="container cta-inner">
+    <h2>Pronto pra ver o código?</h2>
+    <p>Tudo open-source, com testes, Swagger e Docker. Roda local sem instalar nada além de Java.</p>
+    <div class="hero-cta">
+      <a href="https://github.com/Widineii/Nexus-Gest-o---Contract-Flow-API" class="btn btn-primary" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 .5C5.6.5.5 5.6.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.8-1.6-2.6-.3-5.3-1.3-5.3-5.8 0-1.3.5-2.3 1.2-3.2-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2.9-.3 2-.4 3-.4s2.1.1 3 .4c2.3-1.5 3.3-1.2 3.3-1.2.7 1.6.2 2.8.1 3.1.8.8 1.2 1.9 1.2 3.2 0 4.5-2.7 5.5-5.3 5.8.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.6 18.4.5 12 .5z"/></svg>
+        Abrir repositório
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <span class="brand-mark sm">NX</span>
+      <span>Nexus Gestão · Contract Flow</span>
+    </div>
+    <div class="footer-meta">
+      <span>Construído com Java 17 + Spring Boot 3</span>
+      <span class="dot-sep">•</span>
+      <a href="https://github.com/Widineii/Nexus-Gest-o---Contract-Flow-API" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

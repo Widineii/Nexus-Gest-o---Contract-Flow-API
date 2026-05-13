@@ -15,13 +15,13 @@
 
 ## 🌐 Demo online
 
-[![Render Deploy](https://img.shields.io/badge/Render-Deploy%20to-46E3B7?logo=render&logoColor=white)](https://dashboard.render.com/blueprint/new?repo=https://github.com/Widineii/Nexus-Gest-o---Contract-Flow-API)
+[![Netlify Status](https://img.shields.io/badge/Netlify-Live-00C7B7?logo=netlify&logoColor=white)](https://statuesque-syrniki-a62ad4.netlify.app)
 
-**Swagger ao vivo:** `https://nexus-contract-flow.onrender.com/swagger-ui.html` _(após o deploy ficar live)_
+**Landing page do projeto:** [https://statuesque-syrniki-a62ad4.netlify.app](https://statuesque-syrniki-a62ad4.netlify.app)
 
-> O serviço roda no **plano free** do Render. Ele dorme após 15 min sem acesso — a primeira visita demora ~30-60s pra acordar. Banco H2 em memória re-popula com dados de exemplo a cada cold start.
+> A landing apresenta o projeto, stack, endpoints e arquitetura. Pra rodar o **Swagger UI interativo** (que precisa de backend rodando), siga a seção [Quick start](#quick-start-zero-config) abaixo — 1 comando, sem instalar nada além do Java.
 
-**Credenciais para testar:** `admin@nexus.com` / `admin123`
+**Credenciais de teste local:** `admin@nexus.com` / `admin123`
 
 ## Preview
 
